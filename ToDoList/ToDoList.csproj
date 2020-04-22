@@ -4,4 +4,18 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <PropertyGroup> <BlazorLinkOnBuild Condition="'$(Configuration)'!='Release'">false</BlazorLinkOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\Todo.cshtml" />
+      <Content Update="Pages\Todo.razor">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\Todo.cshtml.cs" />
+    </ItemGroup>
+
 </Project>
